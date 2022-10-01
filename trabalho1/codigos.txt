@@ -1,0 +1,23 @@
+        msg1: .asciiz "Informe o diretório das imagens\n"
+    msg2: .asciiz "Informe a quantidade de imagens\n"
+    
+    localDir: .space 100
+    
+    
+    li $v0, 4 #Seta para print de String
+    la $a0, msg1 #taca a mensagem no registrador
+    syscall 
+     
+    li $v0, 8 #Seta para leitura de string
+    li $a1, 100 #Seta o buffer
+    la $a0, localDir 
+    syscall 
+
+    li $v0, 4 #Seta para print de String
+    la $a0, msg2 #taca a mensagem no registrador
+    syscall 
+    
+    li $v0, 5 #Seta para leitura de inteiro
+    syscall
+    
+    move $t9, $v0
